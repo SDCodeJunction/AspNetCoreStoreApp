@@ -1,0 +1,36 @@
+﻿@page
+@model AspNetCoreStoreApp.Pages.Client.IndexModel
+@{
+}
+
+<br />
+<h3>List of Products</h3>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Last Modified</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.listvalue)
+        {
+            <tr>
+                <td> @item.ProductID </td>
+                <td> @item.ProductName  </td>
+                <td> @item.Price </td>
+                <td> @item.LastModified </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Product/Edit?ProductID=@item.ProductID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Product/Delete?ProductID=@item.ProductID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
